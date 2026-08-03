@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: life-os-api
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: node apps/api/dist/server.js
+    rootDir: .
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: API_PORT
+        value: 10000
+      - key: CLIENT_URL
+        value: https://medirelease.web.app
